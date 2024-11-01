@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using TMPro;
-
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rig;
     float moveSpeed = 10f;
     bool useTorque = true;
+
     private int count;
+
     // UI text component to display count of "PickUp" objects collected.
     public TextMeshProUGUI countText;
+
     // UI object to display winning text.
     public GameObject winTextObject;
 
@@ -30,46 +28,27 @@ public class PlayerController : MonoBehaviour
         // Initially set the win text to be inactive.
         winTextObject.SetActive(false);
     }
-    public void Control()
+
+    public void Jump()
+    {
+        Debug.Log("jump Input");
+    }
+    
+    public void Control(Vector3 inputVector)
     {
         if (useTorque)
         {
-            rig.AddTorque(new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")) * moveSpeed);
+            rig.AddForce(inputVector * moveSpeed);
         }
     }
-    void FixedUpdate()
+
+    public void AddCoin(int countValue)
     {
-        Control();
-
+        // Increment the count of "PickUp" objects collected.
+        count += countValue;
+        SetCountText();
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            // Destroy the current object
-            Destroy(gameObject);
-            // Update the winText to display "You Lose!"
-            winTextObject.gameObject.SetActive(true);
-            winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        // Check if the object the player collided with has the "PickUp" tag.
-        if (other.gameObject.CompareTag("PickUp"))
-        {
-            // Deactivate the collided object (making it disappear).
-            other.gameObject.SetActive(false);
 
-            // Increment the count of "PickUp" objects collected.
-            count = count +1;
-
-            // Update the count display.
-            SetCountText();
-        }
-       
-
-    }
     // Function to update the displayed count of "PickUp" objects collected.
     void SetCountText()
     {
@@ -80,11 +59,9 @@ public class PlayerController : MonoBehaviour
         {
             // Display the win text.
             winTextObject.gameObject.SetActive(true);
-           
 
             // Destroy the enemy GameObject.
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
         }
     }
 }
-
