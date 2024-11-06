@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: firstTimeCreated
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4426371828683925032, guid: c05117d6a6b481442ad5a0520d3cec31,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4426371828683925034, guid: c05117d6a6b481442ad5a0520d3cec31,
         type: 3}
       propertyPath: m_Name
