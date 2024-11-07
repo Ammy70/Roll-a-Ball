@@ -20,7 +20,7 @@ public class SpawnCubeSpot : MonoBehaviour
 
     private void SpwanCubeSpots()
     {
-        while (x <= 9)
+        while (x <= 4)
         {
             randomSpawnSpot = Random.Range(0, spawnSpots.Length);
             Instantiate(CubeSpot, spawnSpots[randomSpawnSpot].position, Quaternion.identity);
