@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -55,13 +56,16 @@ public class PlayerController : MonoBehaviour
         // Update the count text with the current count.
         countText.text = "Count: " + count.ToString();
         // Check if the count has reached or exceeded the win condition.
-        if (count >= 3)
+        if (count >= 4)
         {
             // Display the win text.
             winTextObject.gameObject.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
             // Destroy the enemy GameObject.
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
         }
+        
     }
+   
 }

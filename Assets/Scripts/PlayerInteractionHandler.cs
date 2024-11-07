@@ -11,9 +11,10 @@ public class PlayerInteractionHandler : MonoBehaviour
         // Check if the object the player collided with has the "PickUp" tag.
         if (other.gameObject.CompareTag("PickUp"))
         {
-            // Deactivate the collided object (making it disappear).
+           // Deactivate the collided object (making it disappear).
             other.gameObject.SetActive(false);
             _playerController.AddCoin(1);
+            
         }
     }
 }
