@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainManu : MonoBehaviour
 {
-    public FlexibleColorPicker fcp;
-    public Material material;
+   
     // Start is called before the first frame update
     public  void PlayGame()
     {

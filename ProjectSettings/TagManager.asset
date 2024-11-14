@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - CubePickup
   - PickUpPRefb
+  - player
   layers:
   - Default
   - TransparentFX

@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update.
     void Start()
     {
+        GetComponent<MeshRenderer>().material.color = ColorPicker.color;
         // Get and store the Rigidbody component attached to the player.
         rig = GetComponent<Rigidbody>();
 
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour
         SetCountText();
         // Initially set the win text to be inactive.
         winTextObject.SetActive(false);
+       
+
+
     }
 
     public void Jump()
