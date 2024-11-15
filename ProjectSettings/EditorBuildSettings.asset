@@ -12,14 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: cd3681f1d5bcc5649a2308d365abd63a
   - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 9cf5fdbb19ccf984fab8b5f793f311e8
+  - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 5f08b38732c8c3b47bea5cb99f15fbdd
   - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 3a6028ed68d77be49a0fcea4fdb4a165
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 3cbbc939366674840ab30b99eebe0681
-  - enabled: 1
-    path: Assets/Scenes/MiniGmae.unity
-    guid: 9cf5fdbb19ccf984fab8b5f793f311e8
   - enabled: 1
     path: Assets/Scenes/CharacterColorSelection.unity
     guid: ab1ec772d90e5bb4db38d1817ec95274

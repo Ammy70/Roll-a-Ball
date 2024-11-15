@@ -247,12 +247,12 @@ PrefabInstance:
     - target: {fileID: 4080238546212866302, guid: b53481df4e88e634989015a62bfab9b0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 115
+      value: 183
       objectReference: {fileID: 0}
     - target: {fileID: 4080238546212866302, guid: b53481df4e88e634989015a62bfab9b0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 304
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 4080238546212866302, guid: b53481df4e88e634989015a62bfab9b0,
         type: 3}
@@ -466,7 +466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27, y: -108}
+  m_AnchoredPosition: {x: 234, y: -287}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1015356389
@@ -876,9 +876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _texture: {fileID: 1355843834}
-  _player: {fileID: 1174492271}
   _refSprite: {fileID: 2800000, guid: e001df7af5780d14fa46ded74e0f2e49, type: 3}
-  _target: {fileID: 1651641499}
+  _player: {fileID: 1174492271}
 --- !u!4 &1224990329
 Transform:
   m_ObjectHideFlags: 0
