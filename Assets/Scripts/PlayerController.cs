@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private CubeSpawnConfig _cubeSpawnConfig;
+    
     Rigidbody rig;
     float moveSpeed = 10f;
     bool useTorque = true;
-
+    
     private int count;
 
     // UI text component to display count of "PickUp" objects collected.
@@ -29,9 +31,6 @@ public class PlayerController : MonoBehaviour
         SetCountText();
         // Initially set the win text to be inactive.
         winTextObject.SetActive(false);
-       
-
-
     }
 
     public void Jump()
@@ -49,18 +48,16 @@ public class PlayerController : MonoBehaviour
 
     public void AddCoin(int countValue)
     {
-        // Increment the count of "PickUp" objects collected.
         count += countValue;
         SetCountText();
     }
 
-    // Function to update the displayed count of "PickUp" objects collected.
     void SetCountText()
     {
         // Update the count text with the current count.
         countText.text = "Count: " + count.ToString();
         // Check if the count has reached or exceeded the win condition.
-        if (count >= 4)
+        if (count >= _cubeSpawnConfig.numberOfPrefabsToCreate)
         {
             // Display the win text.
             winTextObject.gameObject.SetActive(true);
@@ -69,7 +66,5 @@ public class PlayerController : MonoBehaviour
             // Destroy the enemy GameObject.
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
         }
-        
     }
-   
 }
