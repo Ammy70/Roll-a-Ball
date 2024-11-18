@@ -1,24 +1,16 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
-
-
 public class ColorPicker : MonoBehaviour
 {
-
-
     [SerializeField] RectTransform _texture;
     [SerializeField] Texture2D _refSprite;
     [SerializeField] GameObject _player;
     public static Color color;
-
     private void Awake()
     {
         DontDestroyOnLoad(this);
     }
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -26,7 +18,6 @@ public class ColorPicker : MonoBehaviour
             OnClickSetColor();
         }
     }
-
     public void OnClickSetColor()
     {
         Vector2 localPoint;
@@ -50,10 +41,6 @@ public class ColorPicker : MonoBehaviour
     }
     public void OnClickColorChanged()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
     }
-
-
-
-
 }

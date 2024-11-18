@@ -5,23 +5,18 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CubeSpawnConfig _cubeSpawnConfig;
-    
     Rigidbody rig;
     float moveSpeed = 10f;
     bool useTorque = true;
-    
     private int count;
-
     // UI text component to display count of "PickUp" objects collected.
     public TextMeshProUGUI countText;
-
     // UI object to display winning text.
     public GameObject winTextObject;
 
     // Start is called before the first frame update.
     void Start()
     {
-
         GetComponent<MeshRenderer>().material.color = ColorPicker.color;
         // Get and store the Rigidbody component attached to the player.
         rig = GetComponent<Rigidbody>();
@@ -33,12 +28,10 @@ public class PlayerController : MonoBehaviour
         // Initially set the win text to be inactive.
         winTextObject.SetActive(false);
     }
-
     public void Jump()
     {
         Debug.Log("jump Input");
     }
-    
     public void Control(Vector3 inputVector)
     {
         if (useTorque)
@@ -52,7 +45,6 @@ public class PlayerController : MonoBehaviour
         count += countValue;
         SetCountText();
     }
-
     void SetCountText()
     {
         // Update the count text with the current count.
@@ -62,7 +54,7 @@ public class PlayerController : MonoBehaviour
         {
             // Display the win text.
             winTextObject.gameObject.SetActive(true);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
 
             // Destroy the enemy GameObject.
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
