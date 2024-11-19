@@ -11,19 +11,22 @@ public class SelectLevel : MonoBehaviour
         GetComponent<MeshRenderer>().material.color = ColorPicker.color;
     }
     public void OnClickLevelOne()
-       
     {
-        
-        SceneManager.LoadScene( 2);
+        LoadLevel(1);
     }
     public void OnClickLevelTwo()
     {
-      
-        SceneManager.LoadScene( 2);
+        LoadLevel(2);
     }
     public void OnClickLevelThree()
     {
-       
-        SceneManager.LoadScene( 2);
+        LoadLevel(3);
     }
+
+    private void LoadLevel(int levelNumber)
+    {
+        CubeSpawner.LevelNumber =levelNumber; 
+        SceneManager.LoadScene( 2); 
+    }
+    
 }
