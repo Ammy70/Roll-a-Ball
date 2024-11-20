@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CubeSpawnConfig _cubeSpawnConfig;
-    Rigidbody rig;
-    float moveSpeed = 10f;
-    bool useTorque = true;
+    
+    
     private int count;
     // UI text component to display count of "PickUp" objects collected.
     public TextMeshProUGUI countText;
@@ -19,7 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         GetComponent<MeshRenderer>().material.color = ColorPicker.color;
         // Get and store the Rigidbody component attached to the player.
-        rig = GetComponent<Rigidbody>();
+       
 
         // Initialize count to zero.
         count = 0;
@@ -32,13 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("jump Input");
     }
-    public void Control(Vector3 inputVector)
-    {
-        if (useTorque)
-        {
-            rig.AddForce(inputVector * moveSpeed);
-        }
-    }
+  
 
     public void AddCoin(int countValue)
     {
@@ -54,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             // Display the win text.
             winTextObject.gameObject.SetActive(true);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+            SceneManager.LoadScene(2);
 
             // Destroy the enemy GameObject.
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
