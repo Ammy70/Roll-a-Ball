@@ -2,6 +2,7 @@ using UnityEngine;
 public class PlayerInputHandling : MonoBehaviour
 {
     [SerializeField] private PlayerController _playerController;
+    []
    
     private Vector3 _inputVector;
     Rigidbody rig;

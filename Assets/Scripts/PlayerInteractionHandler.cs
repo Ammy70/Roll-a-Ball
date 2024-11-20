@@ -13,6 +13,7 @@ public class PlayerInteractionHandler : MonoBehaviour
            // Deactivate the collided object (making it disappear).
             other.gameObject.SetActive(false);
             _playerController.AddCoin(1);
+           
           
 
         }
