@@ -1,24 +1,21 @@
 using UnityEngine;
 public class PlayerInputHandling : MonoBehaviour
 {
-    [SerializeField] private PlayerController _playerController;
-    []
-   
-    private Vector3 _inputVector;
-    Rigidbody rig;
-    private void Start()
-    {
-        rig = GetComponent<Rigidbody>();
-
-    }
+    public int speed;
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal") * 5;
-        float vertical = Input.GetAxis("Vertical") * 5;
-        _inputVector = rig.velocity;
-        _inputVector.x = horizontal;
-        _inputVector.z = vertical;
-        rig.velocity = _inputVector;
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 _movementDirection = new Vector3(horizontal, 0, vertical);
+        _movementDirection.Normalize();
+        transform.Translate(_movementDirection * speed*Time.deltaTime,Space.World);
+        if(_movementDirection != Vector3.zero)
+        {
+            transform.forward = _movementDirection;
+        }
+       
+
+
     }
    
 }

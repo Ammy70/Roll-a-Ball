@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerInteractionHandler : MonoBehaviour
 {
     [SerializeField] private PlayerController _playerController;
-
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object the player collided with has the "PickUp" tag.
@@ -12,9 +11,14 @@ public class PlayerInteractionHandler : MonoBehaviour
         {
            // Deactivate the collided object (making it disappear).
             other.gameObject.SetActive(false);
-            _playerController.AddCoin(1);
-           
-          
+            
+           _playerController.AddCoin(1);
+            
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+
+
+
 
         }
     }

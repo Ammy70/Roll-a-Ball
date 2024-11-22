@@ -4,11 +4,10 @@ using UnityEngine.SceneManagement;
 public class SelectLevel : MonoBehaviour
 {
     [SerializeField] public CubeSpawner _cubeSpawner;
-   
+
     // Start is called before the first frame update
     private void Start()
     {
-        GetComponent<MeshRenderer>().material.color = ColorPicker.color;
     }
     public void OnClickLevelOne()
     {

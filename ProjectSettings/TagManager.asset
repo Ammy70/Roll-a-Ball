@@ -9,6 +9,7 @@ TagManager:
   - CubePickup
   - PickUpPRefb
   - player
+  - bullet
   layers:
   - Default
   - TransparentFX
