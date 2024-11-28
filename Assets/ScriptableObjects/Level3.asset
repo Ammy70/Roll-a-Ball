@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 4426371828683925034, guid: 37caf6ca8c990824889a4f5f53eb0028,
     type: 3}
-  numberOfPrefabsToCreate: 6
+  numberOfPrefabsToCreate: 4
