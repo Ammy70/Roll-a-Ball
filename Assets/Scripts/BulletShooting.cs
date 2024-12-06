@@ -37,13 +37,12 @@ public class BulletShooting : MonoBehaviour
             m_ShootingSound.Play();
             lastShootTime = Time.time; // Update the last shot time
             shoot = true;
-            print("This is porne");
-            _animator.SetBool("Shoot", true);
+            _animator.SetTrigger("Shoot");
         }
         else
         {
             shoot = false;
-            _animator.SetBool("Shoot", false);
+
         }
         // Reloading
         if (Input.GetKeyDown(KeyCode.R) && !isReloading && currentBullets < maxBullets && totalAmmo > 0)
