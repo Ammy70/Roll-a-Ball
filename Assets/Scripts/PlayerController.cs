@@ -14,11 +14,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update. 
     void Start()
     {
-        GetComponent<MeshRenderer>().material.color = ColorPicker.color;
+        //GetComponent<MeshRenderer>().material.color = ColorPicker.color;
         // Initialize count to zero.
         count = 0;
         // Initially set the win text to be inactive.
-        winTextObject.SetActive(false);
+        //winTextObject.SetActive(false);
         Bullets.OnBulletHit += AddCoin;
         EnemyHealthbar.OnEnemyKilled += SetCountText;
     }
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         // Check if the count has reached or exceeded the win condition.
         if (count >= _cubeSpawnConfig.numberOfPrefabsToCreate)
         {
-           // Display the win text.
+           // Display the win  text.
             winTextObject.gameObject.SetActive(true);
             SceneManager.LoadScene(2);
         }
