@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthbar : MonoBehaviour
+public class EnemyHealthbar : MonoBehaviour,IHealthComponent
 {
-    public int maxHealth = 100;  // Maximum health
-    private int currentHealth;  // Current health
+    public float maxHealth = 100;  // Maximum health
+    private float currentHealth;  // Current health
     [SerializeField] private bool isPickup;
     [SerializeField] private Image healthImage; // Transform of the health bar's UI element
     private DemageListener damageListener;
@@ -22,25 +22,7 @@ public class EnemyHealthbar : MonoBehaviour
             }
         }
     }
-
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        float healthPercentage = (float) currentHealth / maxHealth;
-        if (isPickup && damageListener != null)
-        {
-            damageListener.UpdateHealthBar(healthPercentage);
-        }
-        else
-        {
-            UpdateHealthBar();
-        }
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
+    
     void UpdateHealthBar()
     {
         if (healthImage != null)
@@ -58,6 +40,30 @@ public class EnemyHealthbar : MonoBehaviour
         OnEnemyKilled?.Invoke();
         print("Enemy killed");
         Destroy(gameObject);
+    }
+
+    public void ApplyDamage(float value)
+    {
+        currentHealth -= value;
+        float healthPercentage = (float) currentHealth / maxHealth;
+        if (isPickup && damageListener != null)
+        {
+            damageListener.UpdateHealthBar(healthPercentage);
+        }
+        else
+        {
+            UpdateHealthBar();
+        }
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public float CheckHealth()
+    {
+        return currentHealth;
     }
 }
 

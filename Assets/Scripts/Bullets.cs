@@ -8,16 +8,11 @@ public class Bullets : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     { 
-        if (other.gameObject.CompareTag("PickUp"))
+        if (other.TryGetComponent(out IHealthComponent healthComponent))
         {
-            EnemyHealthbar enemyHealth = other.GetComponent<EnemyHealthbar>();
-            if (enemyHealth != null)
-            {
-                print("enemy health" + other.gameObject.name);
-                enemyHealth.TakeDamage(10); // Example damage value
-                OnBulletHit?.Invoke();
-                Destroy(this.gameObject);
-            }
+            healthComponent.ApplyDamage(10f);
+            OnBulletHit?.Invoke();
+            Destroy(this.gameObject);
         }
     }
 }

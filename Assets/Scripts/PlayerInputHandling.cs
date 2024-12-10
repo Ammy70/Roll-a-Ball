@@ -17,11 +17,11 @@ public class PlayerInputHandling : MonoBehaviour
         {
             // Move character
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
-
-        }
         // Rotate character to face direction
         Quaternion targetRotation = Quaternion.LookRotation(movement);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        }
         // Set animator speed parameter
             _animation.SetFloat("speed", movement.magnitude);
     }
