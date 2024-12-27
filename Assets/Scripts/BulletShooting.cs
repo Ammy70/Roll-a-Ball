@@ -18,6 +18,8 @@ public class BulletShooting : MonoBehaviour
     [SerializeField] private GameObject bullet;   // game object of bullts
     AudioSource m_ShootingSound;
     public bool shoot = false;
+   
+
 
     private void Start()
     {
@@ -30,7 +32,7 @@ public class BulletShooting : MonoBehaviour
     void Update()
     {
         // Firing bullets
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= lastShootTime + shootCooldown)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time >= lastShootTime+shootCooldown)
         {
             _bulletSpwan.BulletShootSpwan();
             ShootServier();
@@ -48,6 +50,7 @@ public class BulletShooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && !isReloading && currentBullets < maxBullets && totalAmmo > 0)
         {
             
+           
           StartCoroutine(Reload());
         }
        
@@ -59,7 +62,7 @@ public class BulletShooting : MonoBehaviour
                 reloadText.text = $"Ammo: {currentBullets}/{maxBullets}";
                 if (currentBullets == 0)
                 {
-                    //_animator.SetTrigger("Reload");
+                    
                     StartCoroutine(Reload());
                 }
             }
@@ -71,9 +74,9 @@ public class BulletShooting : MonoBehaviour
         IEnumerator Reload()
         {
             isReloading = true;
+            _animator.SetTrigger("Reload");
             reloadText.text = "Reloading...";
             yield return new WaitForSeconds(reloadTime);
-
             currentBullets = maxBullets;
             reloadText.text = $"Ammo: {currentBullets}/{maxBullets}";
             isReloading = false;

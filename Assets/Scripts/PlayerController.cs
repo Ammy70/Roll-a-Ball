@@ -20,12 +20,12 @@ public class PlayerController : MonoBehaviour
         // Initially set the win text to be inactive.
         //winTextObject.SetActive(false);
         Bullets.OnBulletHit += AddCoin;
-        EnemyHealthbar.OnEnemyKilled += SetCountText;
+        EnemyHealth.OnEnemyKilled += SetCountText;
     }
     private void OnDestroy()
     {
         Bullets.OnBulletHit -= AddCoin;
-        EnemyHealthbar.OnEnemyKilled -= SetCountText;
+        EnemyHealth.OnEnemyKilled -= SetCountText;
     }
     private void AddCoin()
     {
